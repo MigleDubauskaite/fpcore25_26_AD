@@ -11,7 +11,7 @@ public class Test {
 		System.out.println(f.getName());
 		System.out.println(f.getPath());
 		
-		File f2 = new File("src/fpcore25_26_AD/file/prueba.txt");
+		File f2 = new File("src/fpcore25_26_AD/file");
 		System.out.println(f2.exists());
 		
 		File f3 = new File("src/fpcore25_26_AD/file/prueba2.txt");
@@ -23,6 +23,10 @@ public class Test {
 		//
 		System.out.println("\n\nPROBANDO EL EJERCICIO: ");
 		FileUtils.analiza(probando1);	
+		System.out.println();
+		FileUtils.analiza(f3);
+		System.out.println();
+		FileUtils.analiza(f2);
 		
 	}
 

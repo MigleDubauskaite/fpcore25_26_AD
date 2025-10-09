@@ -19,12 +19,12 @@ public class FileUtils {
 			System.out.printf("El parent es: %s (%s) %n", f.getParent(), f.getName());
 
 			if (f.isFile()) {
-				System.out.printf("Es un fichero cuyo tamaño es %.4f Mb %n", (double)f.length()/1024/1024);
+				System.out.printf("Es un fichero cuyo tamaño es %.4f Mb %n", (double) f.length() / 1024 / 1024);
 			} else if (f.isDirectory()) {
 				File[] listaArchivos = f.listFiles();
 				for (File file : listaArchivos) {
-					if(file != null && file.isFile()) {
-						System.out.printf("Archivos contenidos en el directorio: %s %n", file.getName());	
+					if (file != null && file.isFile()) {
+						System.out.printf("Archivos contenidos en el directorio: %s %n", file.getName());
 					}
 				}
 			}
