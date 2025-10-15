@@ -12,9 +12,9 @@ public class Jaula {
 	private int capacidad;
 	private List<Pajaro> almacenamientoPajaros;
 
-	private static final Random random = new Random();
+	private static Random random = new Random();
 
-	public int getCapacidadMax() {
+	public int getCapacidad() {
 		return capacidad;
 	}
 
@@ -44,7 +44,7 @@ public class Jaula {
 
 	@Override
 	public String toString() {
-		return "Jaula [id=" + id + ", puertaAbierta=" + puertaAbierta + ", capacidadMax=" + capacidad
+		return "Jaula [id=" + id + ", puertaAbierta=" + puertaAbierta + ", capacidad=" + capacidad
 				+ ", almacenamientoPajaros=" + almacenamientoPajaros + "]";
 	}
 
