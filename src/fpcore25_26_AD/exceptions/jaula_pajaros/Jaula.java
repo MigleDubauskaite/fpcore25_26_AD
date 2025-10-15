@@ -10,7 +10,7 @@ public class Jaula {
 	private int id;
 	private boolean puertaAbierta;
 	private int capacidad;
-	private final List<Pajaro> almacenamientoPajaros;
+	private List<Pajaro> almacenamientoPajaros;
 
 	private static final Random random = new Random();
 
