@@ -19,7 +19,7 @@ public class OperacionesJaula implements AutoCloseable {
 		if (jaula == null || jaula.isPuertaAbierta())
 			throw new JaulaNotAvailableException("Jaula no está disponible");
 		if (numRandom == 1)
-			throw new PuertaAtascadaException("Puerta está atascada");
+			throw new PuertaAtascadaException("LA Puerta está atascada");
 		else
 			open();
 	}
