@@ -29,7 +29,6 @@ public class Numeros {
 			System.out.println("Gracias por confiar en nosotros!");
 		}
 
-		
 		// usamos para acumular todo el contenido de ambos archivos antes de procesarlo
 		StringBuilder contenido = new StringBuilder();
 
