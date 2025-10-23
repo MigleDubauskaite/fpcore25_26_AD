@@ -40,7 +40,7 @@ public class Persona {
 			apellidos = bwApellidos.readLine().trim().split(",");
 
 			System.out.println("Se ha agregado los nombres con éxito");
-			
+
 			return true;
 		} catch (IOException e) {
 			System.out.println("Error al leer");
@@ -74,40 +74,33 @@ public class Persona {
 			bw.append(String.format("USE mundo; %n"));
 
 			// Creamos la tabla de personas con sus valores:
-			bw.append(String.format(
-					"CREATE TABLE personas (nombre VARCHAR(30), "
-										+ "apellido1 VARCHAR(30), "
-										+ "apellido2 VARCHAR(30), "
-										+ "nacimiento INT);   "
-										+ "%n"));
-			
-			// Insertamos los datos a la tabla de personas: 
+			bw.append(String.format("CREATE TABLE personas (nombre VARCHAR(30), " + "apellido1 VARCHAR(30), "
+					+ "apellido2 VARCHAR(30), " + "nacimiento INT);   " + "%n"));
+
+			// Insertamos los datos a la tabla de personas:
 			bw.append(String.format("INSERT INTO personas (nombre, apellido1, apellido2, nacimiento) VALUES %n"));
-			
+
 			// Escribimos cada persona (MENOS LA ÚLTIMA) en una fila de la tabla SQL
 			for (int i = 0; i < personas.length - 1; i++) {
-				bw.append(String.format(" ('%s', '%s', '%s', '%d'), %n", 
-						personas[i].nombre, personas[i].apellido1, personas[i].apellido2, personas[i].nacimiento));
+				bw.append(String.format(" ('%s', '%s', '%s', '%d'), %n", personas[i].nombre, personas[i].apellido1,
+						personas[i].apellido2, personas[i].nacimiento));
 			}
-			
-			// Escribimos la última persona en la fila en SQL 
-			// la agregamos por separado, ya que el último elemento debe acabar en ; y no con ,
-			bw.append(String.format(" ('%s', '%s', '%s', '%d'); %n", 
-					personas[personas.length - 1].nombre, 
-					personas[personas.length - 1].apellido1, 
-					personas[personas.length - 1].apellido2, 
+
+			// Escribimos la última persona en la fila en SQL
+			// la agregamos por separado, ya que el último elemento debe acabar en ; y no
+			// con ,
+			bw.append(String.format(" ('%s', '%s', '%s', '%d'); %n", personas[personas.length - 1].nombre,
+					personas[personas.length - 1].apellido1, personas[personas.length - 1].apellido2,
 					personas[personas.length - 1].nacimiento));
-			
+
 			System.out.println("El archivo 'poblador.sql' ha sido creado correctamente ✅ ");
 			java.awt.Desktop.getDesktop().open(new java.io.File("src/ficheros/buffer/poblador.sql"));
 			return true;
-			
-		} 
-		catch (FileNotFoundException e) {
+
+		} catch (FileNotFoundException e) {
 			System.out.println("El archivo no pudo ser creado❌");
 			return false;
-		}
-		catch (IOException e) {
+		} catch (IOException e) {
 			System.out.println("Error al escribir el archivo❌");
 			return false;
 		}
@@ -118,13 +111,15 @@ public class Persona {
 
 		// CARGAMOS LOS DATOS
 		// Si no se pudieron cargar los datos se sale del programa inmediatamente
-		// Evitamos que el programa siga y luego se intente crear personas con un array null
+		// Evitamos que el programa siga y luego se intente crear personas con un array
+		// null
 		// Si se cargan bien devuelve true
-		if(!Persona.cargarDatos()) return;
-		
-		// GENERAMOS PERSONAS 
+		if (!Persona.cargarDatos())
+			return;
+
+		// GENERAMOS PERSONAS
 		Persona[] listaPersonas = Persona.cantidadPersonas(10);
-		
+
 		// CREAMOS EL ARCHIVO SQL:
 		Persona.creandoSQL(listaPersonas);
 
