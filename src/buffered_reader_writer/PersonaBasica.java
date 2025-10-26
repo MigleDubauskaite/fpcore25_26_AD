@@ -8,7 +8,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Random;
 
-public class Persona {
+public class PersonaBasica {
 
 	private String nombre;
 	private String apellido1;
@@ -22,7 +22,7 @@ public class Persona {
 
 	// creamos un constructor que tedrá:
 	// nombres, apellidos y fecha de nacimiento aleatorios
-	public Persona() {
+	public PersonaBasica() {
 		this.nombre = nombres[random.nextInt(nombres.length)];
 		this.apellido1 = apellidos[random.nextInt(apellidos.length)];
 		this.apellido2 = apellidos[random.nextInt(apellidos.length)];
@@ -49,10 +49,10 @@ public class Persona {
 		}
 	}
 
-	private static Persona[] cantidadPersonas(int numPersonas) {
-		Persona[] personas = new Persona[numPersonas];
+	private static PersonaBasica[] cantidadPersonas(int numPersonas) {
+		PersonaBasica[] personas = new PersonaBasica[numPersonas];
 		for (int i = 0; i < personas.length; i++) {
-			personas[i] = new Persona();
+			personas[i] = new PersonaBasica();
 		}
 		return personas;
 	}
@@ -63,7 +63,7 @@ public class Persona {
 	}
 
 	// creamos archivo SQL y añadimos a las personas
-	private static boolean creandoSQL(Persona[] personas) {
+	private static boolean creandoSQL(PersonaBasica[] personas) {
 
 		try (BufferedWriter bw = new BufferedWriter(new FileWriter("src/ficheros/buffer/poblador.sql"));) {
 
@@ -114,14 +114,14 @@ public class Persona {
 		// Evitamos que el programa siga y luego se intente crear personas con un array
 		// null
 		// Si se cargan bien devuelve true
-		if (!Persona.cargarDatos())
+		if (!PersonaBasica.cargarDatos())
 			return;
 
 		// GENERAMOS PERSONAS
-		Persona[] listaPersonas = Persona.cantidadPersonas(10);
+		PersonaBasica[] listaPersonas = PersonaBasica.cantidadPersonas(10);
 
 		// CREAMOS EL ARCHIVO SQL:
-		Persona.creandoSQL(listaPersonas);
+		PersonaBasica.creandoSQL(listaPersonas);
 
 	}
 

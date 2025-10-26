@@ -1,4 +1,4 @@
-package buffered_reader_writer.respuesta_javi;
+package buffered_reader_writer;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -9,16 +9,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.random.RandomGenerator;
 
-public class Persona {
+public class PersonaJavi {
 
 	private String nombre;
 	private String apellido1;
 	private String apellido2;
 	private int nacido;
 
-	private static String pathNombres = "archivos/nombres.txt";
-	private static String pathApellidos = "archivos/apellidos.txt";
-	private static String pathSalida = "archivos/poblador.sql";
+	private static String pathNombres = "archivos/personas/nombres.txt";
+	private static String pathApellidos = "archivos/personas/apellidos.txt";
+	private static String pathSalida = "archivos/personas/poblador.sql";
 
 	// la lista será solo una, por tanto, la ponemos estatica
 	// la lista es fija por tanto ponemos final: puede ser modificada pero no sin
@@ -36,7 +36,7 @@ public class Persona {
 	 * random = RandomGeneratorFactory.of("L64X128MixRandom").create();
 	 */
 
-	public Persona() {
+	public PersonaJavi() {
 		nombre = elementoAleatorio(nombres);
 		apellido1 = elementoAleatorio(apellidos);
 		apellido2 = elementoAleatorio(apellidos);
@@ -72,7 +72,7 @@ public class Persona {
 		return listaDatos;
 	}
 	
-	private static boolean generarSalida(String file, List<Persona> personas) {
+	private static boolean generarSalida(String file, List<PersonaJavi> personas) {
 		
 		try (BufferedWriter bw = new BufferedWriter(new FileWriter(file));) {
 			
@@ -104,13 +104,13 @@ public class Persona {
 
 	public static void main(String[] args) {
 		int cantidadPersonas = 10;
-		List<Persona> personas = new ArrayList<>();
+		List<PersonaJavi> personas = new ArrayList<>();
 		for (int i = 1; i <= cantidadPersonas; i++) {
-			personas.add(new Persona());
+			personas.add(new PersonaJavi());
 		}
 
-		System.out.println(Persona.nombres);
-		System.out.println(Persona.apellidos);
+		System.out.println(PersonaJavi.nombres);
+		System.out.println(PersonaJavi.apellidos);
 		
 		// insertamos base de datos
 		System.out.println( generarSalida(pathSalida, personas) ? "✅" : "❌");

@@ -1,0 +1,12 @@
+REGISTRO DE LIBROS 
+
+1984                      | Eco             | Año: 1911 | Precio: 30,24€
+El Quijote                | Eco             | Año: 1906 | Precio: 28,22€
+El nombre de la rosa      | Zafón           | Año: 1904 | Precio: 39,47€
+El nombre de la rosa      | Cervantes       | Año: 2010 | Precio: 42,36€
+El nombre de la rosa      | Cervantes       | Año: 2000 | Precio: 30,84€
+El Quijote                | Orwell          | Año: 1992 | Precio: 16,94€
+El nombre de la rosa      | Cervantes       | Año: 1911 | Precio: 23,55€
+El nombre de la rosa      | García Márquez  | Año: 1917 | Precio: 46,22€
+El Quijote                | Cervantes       | Año: 1956 | Precio: 18,90€
+El nombre de la rosa      | García Márquez  | Año: 2006 | Precio: 43,46€
