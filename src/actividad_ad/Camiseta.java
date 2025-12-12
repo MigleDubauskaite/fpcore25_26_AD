@@ -258,7 +258,7 @@ public class Camiseta {
 
 //	método auxiliar (para evitar el error en sql con ')
 
-	private static String manejorComillasSql(String texto) {
+	private static String manejadorComillasSql(String texto) {
 		if (texto == null)
 			return "";
 		return texto.replace("'", "''");
@@ -282,11 +282,14 @@ public class Camiseta {
 
 				String[] datos = linea.split(",", -1);
 
-				String cantidad = datos.length > 1 ? datos[1].trim() : "";
-				String color = datos.length > 2 ? manejorComillasSql(datos[2].trim()) : "";
-				String marca = datos.length > 3 ? manejorComillasSql(datos[3].trim()) : "";
-				String modelo = datos.length > 4 ? manejorComillasSql(datos[4].trim()) : "";
-				String talla = datos.length > 5 ? manejorComillasSql(datos[5].trim()) : "";
+				if (datos.length != 6)
+					continue;
+
+				String cantidad = datos[1].trim();
+				String color = manejadorComillasSql(datos[2].trim());
+				String marca = manejadorComillasSql(datos[3].trim());
+				String modelo = manejadorComillasSql(datos[4].trim());
+				String talla = manejadorComillasSql(datos[5].trim());
 
 				bw.write(String.format(
 						"INSERT INTO camisetas (cantidad, color, marca, modelo, talla) VALUES (%s, '%s', '%s', '%s', '%s');%n",
