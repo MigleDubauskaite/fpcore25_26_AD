@@ -194,8 +194,7 @@ public class Camiseta {
 			return "(vacío)";
 
 //		\p{M} en regex significa “marca de diacrítico” (acentos, diéresis ¨, tilde...)
-		String textoNormalizado = Normalizer.normalize(texto, Normalizer.Form.NFD).replaceAll("\\p{M}", "")
-				.replaceAll("ñ", "n").replaceAll("Ñ", "N");
+		String textoNormalizado = Normalizer.normalize(texto, Normalizer.Form.NFD).replaceAll("\\p{M}", "");
 
 		return textoNormalizado;
 	}
